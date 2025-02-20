@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameOfObject: WoodenBlockParent(Clone)
   uiSprite: {fileID: 2800000, guid: e12121c69948e9240a8d82da6c5c163d, type: 3}
-  placementObject: {fileID: 2899610459856689703, guid: 2634375f07ae8c44fa1af6e835d32e5c,
+  placementObject: {fileID: 1332334046315441820, guid: 2634375f07ae8c44fa1af6e835d32e5c,
     type: 3}
   placementCosts: 0
