@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // Required to manage scenes
+using UnityEngine.SceneManagement; // Import this to use SceneManager
 
 public class SceneChanger : MonoBehaviour
 {
-    // This method will be called when the Play button is clicked
-    public void OnPlayButtonClicked()
+    // Function to change the scene to "GameScene"
+    public void ChangeToGameScene()
     {
-        // Change the scene to the game scene (replace "GameScene" with the name of your scene)
+        // Load the scene named "GameScene"
         SceneManager.LoadScene("GameScene");
     }
 }
