@@ -1,11 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;  // For Slider UI element
 
 public class MenuAudioManager : MonoBehaviour
 {
     public AudioClip mainMenuMusic;  // Main menu background music
     public AudioClip buttonClickSound; // Button click sound effect
     private AudioSource audioSource;
+
+    // Slider to control volume
+    public Slider volumeSlider; // Reference to the Slider UI component
 
     // Menu options (you can expand this to more options as needed)
     private enum MenuOption { StartGame, Options, Quit }
@@ -17,6 +21,13 @@ public class MenuAudioManager : MonoBehaviour
 
         // Start playing the main menu music
         PlayBackgroundMusic(mainMenuMusic);
+
+        // Set initial volume based on Slider value
+        if (volumeSlider != null)
+        {
+            volumeSlider.value = audioSource.volume;  // Set slider to current volume
+            volumeSlider.onValueChanged.AddListener(OnVolumeChanged);  // Add listener to volume slider change
+        }
     }
 
     // Function to play the background music
@@ -63,7 +74,15 @@ public class MenuAudioManager : MonoBehaviour
         Application.Quit();
     }
 
-    // If you want to play different music during the options screen, you can add a function like this
+    // Function that updates the audio volume based on the slider value
+    public void OnVolumeChanged(float value)
+    {
+        if (audioSource != null)
+        {
+            audioSource.volume = value;  // Set audio volume based on slider value
+        }
+    }
+
     public void ChangeToOptionsMusic()
     {
         // Play options music (if defined)
